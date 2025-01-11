@@ -12,7 +12,7 @@ function App() {
   //Post data to backend
   const handlePostData = async () => {
     try {
-      const response = await axios.post("http://208.67.222.222:8000/api/data", {
+      const response = await axios.post("http://192.168.0.105:8000/api/data", {
         number_1: input1,
         number_2: input2,
         operator: operator
