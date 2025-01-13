@@ -32,6 +32,7 @@ public class ApiHandler implements HttpHandler {
             exchange.getResponseHeaders().add("Content-Type", "application/json");
             exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
             exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+            exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "content-type");
             exchange.sendResponseHeaders(200, response.getBytes().length);
 
             OutputStream os = exchange.getResponseBody();
