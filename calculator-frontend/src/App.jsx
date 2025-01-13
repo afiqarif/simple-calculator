@@ -12,7 +12,7 @@ function App() {
   //Post data to backend
   const handlePostData = async () => {
     try {
-      const response = await axios.post("https://simple-calculator-production-7604.up.railway.app:8080/api/data", {
+      const response = await axios.post("https://simple-calculator-production-7604.up.railway.app/api/data", {
         number_1: input1,
         number_2: input2,
         operator: operator
@@ -25,6 +25,7 @@ function App() {
       setData(response.data._resultCalc);
     } catch (err) {
       setError("Failed to post data...");
+      alert(err);
       console.error(err);
     }
   }
