@@ -31,8 +31,13 @@ public class ApiHandler implements HttpHandler {
 
             exchange.getResponseHeaders().add("Content-Type", "application/json");
             exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "https://afiqarif.github.io");
-            exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-            exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "content-type");
+            if (exchange.getRequestMethod().equalsIgnoreCase("OPTIONS")) {
+                exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, OPTIONS");
+                exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type");
+                exchange.sendResponseHeaders(204, -1);
+                return;
+            }
+
             exchange.sendResponseHeaders(200, response.getBytes().length);
 
             OutputStream os = exchange.getResponseBody();
@@ -43,7 +48,7 @@ public class ApiHandler implements HttpHandler {
         //  Handle other request
         else if ("OPTIONS".equals(exchange.getRequestMethod())) {
             exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "https://afiqarif.github.io");
-            exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+            exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "POST, OPTIONS");
             exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type");
             exchange.sendResponseHeaders(204, -1); // No Content
         } 
