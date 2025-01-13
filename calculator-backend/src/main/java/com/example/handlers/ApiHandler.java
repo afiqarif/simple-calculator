@@ -30,7 +30,7 @@ public class ApiHandler implements HttpHandler {
             System.out.println(response);
 
             exchange.getResponseHeaders().add("Content-Type", "application/json");
-            exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "https://afiqarif.github.io");
+            exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "https://afiqarif.github.io/simple-calculator/");
             exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "POST, OPTIONS");
             exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Custom-Header");
             exchange.getResponseHeaders().add("Access-Control-Allow-Credentials", "true");
@@ -45,7 +45,7 @@ public class ApiHandler implements HttpHandler {
 
         //  Handle other request
         else if ("OPTIONS".equals(exchange.getRequestMethod())) {
-            exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "https://afiqarif.github.io");
+            exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "https://afiqarif.github.io/simple-calculator/");
             exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "POST, OPTIONS");
             exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Custom-Header");
             exchange.getResponseHeaders().add("Access-Control-Allow-Credentials", "true");
