@@ -12,7 +12,7 @@ function App() {
   //Post data to backend
   const handlePostData = async () => {
     try {
-      const response = await axios.post("https://35.212.162.221:8080/api/data", {
+      const response = await axios.post("https://simple-calculator-production-7604.up.railway.app//api/data", {
         number_1: input1,
         number_2: input2,
         operator: operator
