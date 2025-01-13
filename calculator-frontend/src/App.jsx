@@ -16,6 +16,11 @@ function App() {
         number_1: input1,
         number_2: input2,
         operator: operator
+      },
+      {
+          headers: {
+              "Content-Type": "application/json", // Set content type
+          },
       });
       setData(response.data._resultCalc);
     } catch (err) {
